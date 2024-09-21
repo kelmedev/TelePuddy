@@ -1,79 +1,52 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
-import { Box, FormControl, TextField, Button } from '@mui/material';
+import { Box, FormControl } from '@mui/material';  
+import EmailField from '@/components/EmailField';
+import PasswordField from '@/components/PasswordField';
+import SubmitButton from '@/components/SubmitButton';
+import { validateEmail, validatePassword } from '@/utils/validation';
+import Image from "next/image";
 
-const Page = () => {
+export default function Page() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const validateEmail = (value: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(value)) {
-      setEmailError('Email inválido');
-    } else {
-      setEmailError('');
-    }
-  };
-
-  const validatePassword = (value: string) => {
-    if (!value) {
-      setPasswordError('Senha não pode estar vazia');
-    } else {
-      setPasswordError('');
-    }
-  };
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
-    if (id === 'simple-select-required') {
+    if (id === 'email-input') {
       setEmail(value);
-      validateEmail(value);
-    } else if (id === 'simple-select-password') {
+      setEmailError(validateEmail(value));
+    } else if (id === 'password-input') {
       setPassword(value);
-      validatePassword(value);
+      setPasswordError(validatePassword(value));
     }
   };
 
   const handleSubmit = () => {
-    validateEmail(email);
-    validatePassword(password);
-    if (!emailError && !passwordError) {
+    const emailValidationError = validateEmail(email);
+    const passwordValidationError = validatePassword(password);
+    setEmailError(emailValidationError);
+    setPasswordError(passwordValidationError);
+
+    if (!emailValidationError && !passwordValidationError) {
       // Lógica de envio do formulário
       console.log('Formulário enviado com sucesso');
     }
   };
 
   return (
-    <Box>
-      <Box className="w-[60vh] flex flex-center">
+    <Box className="flex flex-col gap-12 justify-center items-center h-screen">
+      <Image src="/logo.png" alt="Logotipo Puddy" width="200" height="120" />
+      <Box className="w-[60vh]">
         <FormControl fullWidth>
-          <TextField
-            id="simple-select-required"
-            value={email}
-            label="Email"
-            onChange={handleChange}
-            error={!!emailError}
-            helperText={emailError}
-          />
-          <TextField
-            id="simple-select-password"
-            value={password}
-            label="Senha"
-            type="password"
-            onChange={handleChange}
-            error={!!passwordError}
-            helperText={passwordError}
-          />
-          <Button onClick={handleSubmit} variant="contained" color="primary">
-            Enviar
-          </Button>
+          <EmailField email={email} emailError={emailError} onChange={handleChange} />
+          <PasswordField password={password} passwordError={passwordError} onChange={handleChange} />
+          <SubmitButton onClick={handleSubmit} />
         </FormControl>
       </Box>
     </Box>
   );
-};
-
-export default Page;
+}
