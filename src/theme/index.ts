@@ -13,6 +13,9 @@ const theme = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
   },
+  shape: {
+    borderRadius: 16,
+  },
   palette: {
     primary: {
       main: "#0094FF",

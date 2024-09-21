@@ -21,6 +21,7 @@ const EmailField: React.FC<EmailFieldProps> = ({
 			error={!!emailError}
 			helperText={emailError}
 			margin="normal"
+      required
 		/>
 	);
 };

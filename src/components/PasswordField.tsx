@@ -18,6 +18,7 @@ const PasswordField: React.FC<PasswordFieldProps> = ({ password, passwordError, 
       error={!!passwordError}
       helperText={passwordError}
       margin="normal"
+      required
     />
   );
 };
