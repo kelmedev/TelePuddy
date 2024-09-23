@@ -14,15 +14,14 @@ interface PetDemographicsProps {
 
 const PetDemographics: React.FC<PetDemographicsProps> = ({ species, breed, age, size, weight, gender }) => {
   return (
-    <Box>
-      <Typography variant="h6">Dados Demográficos</Typography>
-      <Typography>Espécie: {species}</Typography>
-      <Typography>Raça: {breed}</Typography>
-      <Typography>Idade: {age}</Typography>
-      <Typography>Porte: {size}</Typography>
-      <Typography>Peso: {weight}</Typography>
-      <Typography>Sexo: {gender}</Typography>
-    </Box>
+    <div className='grid md:grid-cols-3 grid-cols-2 gap-2'>
+      <Typography><span className="font-bold">Espécie: </span>{species}</Typography>
+      <Typography><span className="font-bold">Raça: </span>{breed}</Typography>
+      <Typography><span className="font-bold">Idade: </span>{age}</Typography>
+      <Typography><span className="font-bold">Porte: </span>{size}</Typography>
+      <Typography><span className="font-bold">Peso: </span>{weight}</Typography>
+      <Typography><span className="font-bold">Sexo: </span>{gender}</Typography>
+    </div>
   );
 };
 

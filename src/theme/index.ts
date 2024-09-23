@@ -14,14 +14,14 @@ const theme = createTheme({
     fontFamily: roboto.style.fontFamily,
   },
   shape: {
-    borderRadius: 16,
+    borderRadius: 8,
   },
   palette: {
     primary: {
       main: "#0094FF",
     },
     secondary: {
-      main: "#40aca6",
+      main: "#FF9800",
     },
     warning: {
       main: "#FFC107",

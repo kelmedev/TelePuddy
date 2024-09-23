@@ -7,7 +7,7 @@ import { Session } from "next-auth";
 import { AppProvider } from "@/providers/app-provider";
 
 export const metadata: Metadata = {
-  title: "TelePuddy",
+  title: "TelePuddy - Veterinários",
   description: "Telemedicina veterinaria.",
 };
 

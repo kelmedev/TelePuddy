@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import { Button } from '@mui/material';
 
@@ -9,6 +11,7 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ onClick }) => {
   return (
     <Button
       onClick={onClick}
+      className='w-full'
       variant="contained"
       color="primary"
       sx={{
@@ -19,7 +22,7 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ onClick }) => {
         fontSize: '1.125rem', // Tamanho do texto (equivalente a text-lg no Tailwind)
       }}
     >
-      Enviar
+      Entrar
     </Button>
   );
 };

@@ -8,7 +8,7 @@ interface ClinicDescriptionProps {
 const ClinicDescription: React.FC<ClinicDescriptionProps> = ({ description }) => {
   return (
     <Box mt={2}>
-      <Typography variant="h6">Descrição Clínica</Typography>
+      <Typography variant="h6">Descrição do paciente</Typography>
       <Typography>{description}</Typography>
     </Box>
   );
