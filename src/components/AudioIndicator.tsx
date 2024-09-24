@@ -64,18 +64,18 @@ const AudioIndicator: React.FC<AudioIndicatorProps> = ({ isActive }) => {
 	};
 
 	return (
-		<div className="flex items-end gap-1">
+		<div className="flex bg-primary align-middle items-center justify-center m-auto gap-1 w-[32px] h-[32px] rounded-full">
 			<div
-				className="w-1 bg-blue-500"
+				className="w-1 bg-white rounded-xl"
 				style={{ height: `${getBarHeight(1)}%` }}
 			></div>
 			<div
-				className="w-1 bg-blue-500"
-				style={{ height: `${getBarHeight(1.5)}%` }}
+				className="w-1 bg-white rounded-xl"
+				style={{ height: `${getBarHeight(2)}%` }}
 			></div>
 			<div
-				className="w-1 bg-blue-500"
-				style={{ height: `${getBarHeight(2)}%` }}
+				className="w-1 bg-white rounded-xl"
+				style={{ height: `${getBarHeight(1)}%` }}
 			></div>
 		</div>
 	);

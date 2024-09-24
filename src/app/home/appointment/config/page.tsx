@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 import ToggleButton from "@/components/ToggleButton";
 import ActionButton from "@/components/ActionButton";
@@ -51,15 +51,17 @@ export default function MeetingPage() {
 	return (
 		<div className="flex flex-col justify-center items-center h-screen gap-8 ">
 			<Typography variant="h5" className="mb-4">
-				Entrar na chamada
+				Entrar na consulta
 			</Typography>
-			<div className="flex flex-col items-center max-w-[560px] w-full px-12">
+			<div className="flex flex-col items-center max-w-[520px] w-full px-12 relative">
+
 				<video
 					ref={videoRef}
 					autoPlay
-					className="w-[24rem] h-[14rem] bg-black mb-4 object-cover transform scale-x-[-1] rounded-2xl"
+					className="w-full max-w-[32rem] h-[16rem] bg-black mb-4 object-cover transform scale-x-[-1] rounded-2xl"
 				/>
-				<div className="flex-row flex gap-4">
+				
+				<div className="items-center absolute flex gap-2 bottom-16 ">
 					<ToggleButton
 						type="camera"
 						onClick={handleToggleCamera}
@@ -71,19 +73,34 @@ export default function MeetingPage() {
 						isActive={isMicOn}
 					/>
 				</div>
-				<AudioIndicator isActive={isMicOn} />
+				<div className=" absolute flex gap-2 right-12">
 				
+					<AudioIndicator isActive={isMicOn} />
+				</div>
+
+				<div className="flex flex-row gap-4 w-full">
 				
-				<ActionButton
-					onClick={handleJoinMeeting}
-					label="Entrar"
-					color="primary"
-				/>
-				<ActionButton
-					onClick={handleCancelMeeting}
-					label="Cancelar"
-					color="error"
-				/>
+
+					<div className="flex flex-row gap-2 w-full">
+						<Button
+							onClick={handleJoinMeeting}
+							variant="contained"
+							href="/home/appointment"
+							className="w-full"
+						>
+							Entrar
+						</Button>
+						<Button
+							onClick={handleCancelMeeting}
+							variant="contained"
+							color="error"
+							href="/home"
+							className="w-full"
+						>
+							Cancelar
+						</Button>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

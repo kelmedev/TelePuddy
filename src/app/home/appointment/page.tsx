@@ -49,7 +49,7 @@ export default function MeetingPage() {
   return (
 		<Box className="flex flex-col justify-center items-center h-screen gap-8">
 			<Typography variant="h5" className="mb-4">
-				Entrar na chamada
+				Em chamada
 			</Typography>
 			<Box className="flex flex-col items-center w-[360px]">
 				<video
@@ -70,16 +70,10 @@ export default function MeetingPage() {
 					/>
 				</div>
 
-        
-				<ActionButton
-					onClick={handleJoinMeeting}
-					label="Entrar"
-				/>
-
-				<ActionButton
-					onClick={handleCancelMeeting}
-					label="Cancelar"
-				/>
+        <Button>
+          Sair
+        </Button>
+			
 			</Box>
 		</Box>
 	);
